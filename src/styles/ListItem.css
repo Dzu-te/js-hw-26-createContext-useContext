@@ -1,0 +1,11 @@
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  gap: 5px;
+}
+
+:checked+.product-text {
+  text-decoration: line-through;
+}
