@@ -8,7 +8,12 @@ interface Todo {
   completed: boolean;
 }
 
-const UrlPlaceholder: React.FC<{ addItem: (item: ShoppingItem) => void }> = ({ addItem }) => {
+interface UrlPlaceholderProps {
+  addItem: (item: ShoppingItem) => void;
+  generateId: () => string;
+}
+
+const UrlPlaceholder: React.FC<UrlPlaceholderProps> = ({ addItem, generateId }) => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -29,10 +34,10 @@ const UrlPlaceholder: React.FC<{ addItem: (item: ShoppingItem) => void }> = ({ a
 
   const handleAdd = (todo: Todo) => {
     const newItem: ShoppingItem = {
-      id: todo.id,
+      id: generateId(),
       product: todo.title,
       isChecked: todo.completed,
-      source: "server", 
+      source: "server",
     };
     addItem(newItem);
   };

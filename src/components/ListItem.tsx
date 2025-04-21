@@ -1,11 +1,10 @@
-
 import "../styles/ListItem.css";
 import type { ShoppingItem } from "../types/ShoppingItem"; 
 
 type ListItemProps = Pick<ShoppingItem, "id" | "product" | "isChecked"> & {
-  removeItem: (id: number) => void;
-  checkItem: (id: number) => void;
-  uncheckItem: (id: number) => void;
+  removeItem: (id: string) => void;
+  checkItem: (id: string) => void;
+  uncheckItem: (id: string) => void;
 };
 
 function ListItem({ id, product, isChecked, removeItem, checkItem, uncheckItem }: ListItemProps) {
